@@ -34,14 +34,10 @@ public class Cola {
            cajero.setSiguiente(primero);
         }
         else{
-            if(size()==1){
-                 primero.setSiguiente(aux);
-            }
-            else{
                 ultimo.setSiguiente(aux);
-            }
         }
         ultimo=aux;
+        tam++;
         return aux.getNombre()+ " "+ aux.getServicios()+ " ha ingresado a la cola";
     }
     public String enqueue (String nombre,int servicios){
@@ -51,15 +47,12 @@ public class Cola {
            cajero.setSiguiente(primero);
         }
         else{
-           if(size()==1){
-                 primero.setSiguiente(aux);
-            }
-            else{
                 ultimo.setSiguiente(aux);
-            }
         }
+        tam++;
         ultimo=aux;
         return aux.getNombre()+ " "+ aux.getServicios()+ " ha ingresado a la cola";
+        
     }
     
     public String dequeue(){
@@ -70,7 +63,9 @@ public class Cola {
             Nodo aux2=primero;
             Nodo aux = primero.getSiguiente();
             primero=aux;
+            tam--;
             return "atendiendo a "+ aux2.getNombre()+ " "+aux2.getServicios();
+            
         }
         else{
             return "Esperando....";
@@ -87,6 +82,7 @@ public class Cola {
                 cadena+=aux.getNombre() +" "+ aux.getServicios()+"\n";
                 aux =aux.getSiguiente();
             }        
+           
             return cadena;
         }
     }
